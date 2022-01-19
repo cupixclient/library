@@ -48,7 +48,7 @@ function Cupix_Lib:CreateBase(Name)
 	Button.ImageTransparency = 1.000
 
 	ImageContent.Name = "ImageContent"
-	ImageContent.Parent = Button
+	ImageContent.Parent = game.StarterGui.IntMain.IntBase.Menu.Button
 	ImageContent.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 	ImageContent.BackgroundTransparency = 1.000
 	ImageContent.Position = UDim2.new(0.309090912, 0, 0.301886797, 0)
