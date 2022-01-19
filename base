@@ -18,9 +18,9 @@ function Cupix_Lib:CreateBase(Name)
 	IntMain.Name = "IntMain"
 	IntMain.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
 	IntMain.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-	
+
 	IntMain.ResetOnSpawn = false;
-	
+
 	IntBase.Name = Name
 	IntBase.Parent = IntMain
 	IntBase.BackgroundColor3 = Color3.fromRGB(32, 32, 32)
@@ -95,7 +95,7 @@ function Cupix_Lib:CreateBase(Name)
 
 	Int.Name = "Int"
 	Int.Parent = IntMain
-	
+
 	NotificationTemplate.Name = "NotificationTemplate"
 	NotificationTemplate.Parent = IntMain
 	NotificationTemplate.BackgroundColor3 = Color3.fromRGB(38, 38, 38)
@@ -109,7 +109,7 @@ function Cupix_Lib:CreateBase(Name)
 	NotificationTemplate.TextColor3 = Color3.fromRGB(234, 247, 255)
 	NotificationTemplate.TextSize = 12.000
 	NotificationTemplate.TextWrapped = true
-	
+
 	-- Scripts
 
 	local fake_module_scripts = {}
@@ -215,21 +215,21 @@ function Cupix_Lib:CreateBase(Name)
 	end
 	coroutine.wrap(UYVVD_fake_script)()
 	local function BDGWLM_fake_script() -- IntMain.Setup 
-	local script = Instance.new('LocalScript', IntMain)
-	local req = require
-	local require = function(obj)
-		local fake = fake_module_scripts[obj]
-		if fake then
-			return fake()
+		local script = Instance.new('LocalScript', IntMain)
+		local req = require
+		local require = function(obj)
+			local fake = fake_module_scripts[obj]
+			if fake then
+				return fake()
+			end
+			return req(obj)
 		end
-		return req(obj)
-	end
 
-	local NewPath = game:GetService("ReplicatedStorage")
-	local MainParent = script.Parent.NotificationBase
-	local function ChangePath()
-		MainParent.Parent = NewPath
-	end
+		local NewPath = game:GetService("ReplicatedStorage")
+		local MainParent = script.Parent.NotificationBase
+		local function ChangePath()
+			MainParent.Parent = NewPath
+		end
 		ChangePath()
 	end
 	coroutine.wrap(BDGWLM_fake_script)()
@@ -245,7 +245,7 @@ function Cupix_Lib:CreateBase(Name)
 		end
 	end
 	coroutine.wrap(JDBX_fake_script)()
-	
+
 	local function NKNGO_fake_script() -- NotificationTemplate.ChangeParent 
 		local script = Instance.new('LocalScript', NotificationTemplate)
 
@@ -257,7 +257,7 @@ function Cupix_Lib:CreateBase(Name)
 		ChangePath2()
 	end
 	coroutine.wrap(NKNGO_fake_script)()
-	
+
 	function Cupix_Lib:CreateTitle(TitleName)
 		local TitleSection = Instance.new("Frame")
 		local TitleContent = Instance.new("TextLabel")
@@ -279,7 +279,7 @@ function Cupix_Lib:CreateBase(Name)
 		TitleContent.TextColor3 = Color3.fromRGB(255, 255, 255)
 		TitleContent.TextSize = 14.500
 	end
-	
+
 	function Cupix_Lib:CreateSlider(SliderName,Maxvalue,Minvalue,CallVal)
 		local Slider = Instance.new("Frame")
 		local Content = Instance.new("TextLabel")
@@ -409,12 +409,13 @@ function Cupix_Lib:CreateBase(Name)
 		end 
 		coroutine.wrap(BSLDW_fake_script)()
 	end
-	
-	function Cupix_Lib:CreateCheckBox()
+
+	function Cupix_Lib:CreateCheckBox(CheckBoxName,CallBack,IsToggled)
 		local CheckBox = Instance.new("Frame")
 		local CheckBoxContent = Instance.new("TextLabel")
 		local Toggler = Instance.new("ImageButton")
-		
+		IsToggled = false
+		local CallBack = CallBack or function() end
 		CheckBox.Name = "CheckBox"
 		CheckBox.Parent = PageContents
 		CheckBox.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
@@ -429,7 +430,7 @@ function Cupix_Lib:CreateBase(Name)
 		CheckBoxContent.Position = UDim2.new(0.0304054059, 0, 0, 0)
 		CheckBoxContent.Size = UDim2.new(0, 278, 0, 38)
 		CheckBoxContent.Font = Enum.Font.GothamSemibold
-		CheckBoxContent.Text = "CheckBox"
+		CheckBoxContent.Text = CheckBoxName
 		CheckBoxContent.TextColor3 = Color3.fromRGB(255, 255, 255)
 		CheckBoxContent.TextSize = 14.000
 		CheckBoxContent.TextXAlignment = Enum.TextXAlignment.Left
@@ -439,6 +440,7 @@ function Cupix_Lib:CreateBase(Name)
 		Toggler.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
 		Toggler.BackgroundTransparency = 1.000
 		Toggler.BorderSizePixel = 0
+		Toggler.ImageTransparency = 0
 		Toggler.Position = UDim2.new(0.894891918, 0, 0.182999462, 0)
 		Toggler.Size = UDim2.new(0, 24, 0, 25)
 		Toggler.ZIndex = 0
@@ -446,38 +448,30 @@ function Cupix_Lib:CreateBase(Name)
 		Toggler.Image = "rbxassetid://8543726385"
 		Toggler.ImageColor3 = Color3.fromRGB(255, 79, 79)
 
-		local function FOTBGEK_fake_script() -- Toggler.ToggleManager 
+		local function ULWTG_fake_script() -- Toggler.ToggleManager 
 			local script = Instance.new('LocalScript', Toggler)
-			local req = require
-			local require = function(obj)
-				local fake = fake_module_scripts[obj]
-				if fake then
-					return fake()
-				end
-				return req(obj)
-			end
 
-			local Parent = script.Parent
-			local IsToggled = false
-			Parent.MouseButton1Click:Connect(function()
-				if IsToggled == true then
-					IsToggled = false
-					local Speed = 0.3
+			IsToggled = false
+			Toggler.MouseButton1Click:Connect(function()
+				if IsToggled == false then
+					local Speed = 0.2
 					local TweenFunc = TweenInfo.new(Speed, Enum.EasingStyle.Linear , Enum.EasingDirection.Out, 0)
+					local TweenServ = game:GetService("TweenService")
 					local ColorTrue = Color3.fromRGB(144,255,96)	
-					TweenFunc:Create(Parent,TweenFunc, {BackgroundColor3 = ColorTrue}):Play()
-				end
-				if IsToggled == true then
-					IsToggled = false
-					local Speed = 0.3
+					TweenServ:Create(Toggler,TweenFunc, {ImageColor3 = ColorTrue}):Play()
+					IsToggled = true
+				else
+					local Speed = 0.2
 					local TweenFunc = TweenInfo.new(Speed, Enum.EasingStyle.Linear , Enum.EasingDirection.Out, 0)
-					local ColorFalse = Color3.fromRGB(255,79,79)
-					TweenFunc:Create(Parent,TweenFunc, {BackgroundColor3 = ColorFalse}):Play()
+					local TweenServ = game:GetService("TweenService")
+					local ColorTrue = Color3.fromRGB(255,79,79)	
+					TweenServ:Create(Toggler,TweenFunc, {ImageColor3 = ColorTrue}):Play()
+					IsToggled = false
 				end
+				pcall(CallBack,IsToggled)
 			end)
 		end
-		coroutine.wrap(FOTBGEK_fake_script)()
+		coroutine.wrap(ULWTG_fake_script)()
 	end
 end
-
 return Cupix_Lib
