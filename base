@@ -91,7 +91,7 @@ function Cupix_Lib:CreateBase()
 	UIListLayout_2.HorizontalAlignment = Enum.HorizontalAlignment.Right
 	UIListLayout_2.SortOrder = Enum.SortOrder.LayoutOrder
 	UIListLayout_2.VerticalAlignment = Enum.VerticalAlignment.Bottom
-	UIListLayout_2.Padding = UDim.new(0, 10)
+	UIListLayout_2.Padding = UDim.new(0, 7)
 
 	Int.Name = "Int"
 	Int.Parent = IntMain
