@@ -53,7 +53,7 @@ function Cupix_Lib:CreateBase(Name)
 	ImageContent.BackgroundTransparency = 1.000
 	ImageContent.Position = UDim2.new(0.309090912, 0, 0.301886797, 0)
 	ImageContent.Size = UDim2.new(0, 21, 0, 21)
-	ImageContent.Image = "rbxassetid://8581523573"
+	ImageContent.Image = "rbxassetid://8581558119"
 
 	Page.Name = "Page"
 	Page.Parent = IntBase
