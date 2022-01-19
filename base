@@ -1,7 +1,6 @@
 local Cupix_Lib = {}
 
-function Cupix_Lib:CreateBase(Name,Func)
-	Func = function() end
+function Cupix_Lib:CreateBase(Name)
 	local IntMain = Instance.new("ScreenGui")
 	local IntBase = Instance.new("Frame")
 	local Menu = Instance.new("Frame")
