@@ -481,4 +481,5 @@ function Cupix_Lib:CreateBase(Name)
 	end
 	return Lib
 end
-return Cupix_Lib 
+
+return Cupix_Lib
