@@ -1,7 +1,6 @@
 local Cupix_Lib = {}
-local Lib = {}
 
-function Cupix_Lib:CreateBase(Name,Lib)
+function Cupix_Lib:CreateBase(Name,Cupix_Lib)
 	local IntMain = Instance.new("ScreenGui")
 	local IntBase = Instance.new("Frame")
 	local Menu = Instance.new("Frame")
@@ -259,7 +258,29 @@ function Cupix_Lib:CreateBase(Name,Lib)
 	end
 	coroutine.wrap(NKNGO_fake_script)()
 	
-	function Lib:CreateSlider(SliderName,Maxvalue,Minvalue,CallVal)
+	function Cupix_Lib:CreateTitle(TitleName)
+		local TitleSection = Instance.new("Frame")
+		local TitleContent = Instance.new("TextLabel")
+
+		TitleSection.Name = "TitleSection"
+		TitleSection.Parent = PageContents
+		TitleSection.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
+		TitleSection.BorderSizePixel = 0
+		TitleSection.Position = UDim2.new(0.231626838, 0, 1.09619057, 0)
+		TitleSection.Size = UDim2.new(0, 296, 0, 38)
+
+		TitleContent.Name = "TitleContent"
+		TitleContent.Parent = TitleSection
+		TitleContent.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+		TitleContent.BackgroundTransparency = 1.000
+		TitleContent.Size = UDim2.new(0, 296, 0, 38)
+		TitleContent.Font = Enum.Font.GothamSemibold
+		TitleContent.Text = TitleName
+		TitleContent.TextColor3 = Color3.fromRGB(255, 255, 255)
+		TitleContent.TextSize = 14.500
+	end
+	
+	function Cupix_Lib:CreateSlider(SliderName,Maxvalue,Minvalue,CallVal)
 		local Slider = Instance.new("Frame")
 		local Content = Instance.new("TextLabel")
 		local ToolTip = Instance.new("ImageButton")
@@ -389,29 +410,7 @@ function Cupix_Lib:CreateBase(Name,Lib)
 		coroutine.wrap(BSLDW_fake_script)()
 	end
 	
-	function Lib:CreateTitle(TitleName)
-		local TitleSection = Instance.new("Frame")
-		local TitleContent = Instance.new("TextLabel")
-
-		TitleSection.Name = "TitleSection"
-		TitleSection.Parent = PageContents
-		TitleSection.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
-		TitleSection.BorderSizePixel = 0
-		TitleSection.Position = UDim2.new(0.231626838, 0, 1.09619057, 0)
-		TitleSection.Size = UDim2.new(0, 296, 0, 38)
-
-		TitleContent.Name = "TitleContent"
-		TitleContent.Parent = TitleSection
-		TitleContent.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-		TitleContent.BackgroundTransparency = 1.000
-		TitleContent.Size = UDim2.new(0, 296, 0, 38)
-		TitleContent.Font = Enum.Font.GothamSemibold
-		TitleContent.Text = TitleName
-		TitleContent.TextColor3 = Color3.fromRGB(255, 255, 255)
-		TitleContent.TextSize = 14.500
-	end
-	
-	function Lib:CreateCheckBox()
+	function Cupix_Lib:CreateCheckBox()
 		local CheckBox = Instance.new("Frame")
 		local CheckBoxContent = Instance.new("TextLabel")
 		local Toggler = Instance.new("ImageButton")
@@ -479,7 +478,7 @@ function Cupix_Lib:CreateBase(Name,Lib)
 		end
 		coroutine.wrap(FOTBGEK_fake_script)()
 	end
-	return Lib
+	--return Lib
 end
 
 return Cupix_Lib
