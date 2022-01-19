@@ -1,7 +1,6 @@
 local Cupix_Lib = {}
 
 function Cupix_Lib:CreateBase(Name)
-	local Lib = {}
 	local IntMain = Instance.new("ScreenGui")
 	local IntBase = Instance.new("Frame")
 	local Menu = Instance.new("Frame")
@@ -479,7 +478,6 @@ function Cupix_Lib:CreateBase(Name)
 		end
 		coroutine.wrap(FOTBGEK_fake_script)()
 	end
-	return Lib
 end
 
 return Cupix_Lib
