@@ -416,7 +416,7 @@ function Cupix_Lib:CreateBase(Name)
 		local Toggler = Instance.new("ImageButton")
 		
 		CheckBox.Name = "CheckBox"
-		CheckBox.Parent = game.StarterGui.IntMain.Int.LIB
+		CheckBox.Parent = PageContents
 		CheckBox.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
 		CheckBox.BorderSizePixel = 0
 		CheckBox.Position = UDim2.new(0.231626838, 0, 1.09619057, 0)
