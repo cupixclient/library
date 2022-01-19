@@ -64,7 +64,7 @@ function Cupix_Lib:CreateBase(Name)
 	Page.Size = UDim2.new(0, 331, 0, 261)
 
 	PageContents.Name = "PageContents"
-	PageContents.Parent = Page
+	PageContents.Parent = game.StarterGui.IntMain.IntBase.Page
 	PageContents.Active = true
 	PageContents.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 	PageContents.BackgroundTransparency = 1.000
