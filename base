@@ -1,6 +1,6 @@
 local Cupix_Lib = {}
 
-function Cupix_Lib:CreateBase(Name)
+function Cupix_Lib:CreateBase(Name,CanvasSize)
 	
 	print('LIB Created by ?????#9244')
 
@@ -72,6 +72,7 @@ function Cupix_Lib:CreateBase(Name)
 	PageContents.Position = UDim2.new(0.0217361748, 0, 0.0306513403, 0)
 	PageContents.Size = UDim2.new(0, 314, 0, 244)
 	PageContents.BottomImage = "rbxassetid://8543726385"
+	PageContents.CanvasSize = UDim2.new(0, 0, CanvasSize, 0)
 	PageContents.MidImage = "rbxassetid://8543726385"
 	PageContents.ScrollBarThickness = 8
 	PageContents.TopImage = "rbxassetid://8543726385"
