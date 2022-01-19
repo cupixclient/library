@@ -258,7 +258,7 @@ function Cupix_Lib:CreateBase()
 	
 	local Lib = {}
 	
-	function Lib:CreateSlider(SliderName,Maxvalue,Minvalue,CallVal)
+	function Cupix_Lib:CreateSlider(SliderName,Maxvalue,Minvalue,CallVal)
 		local Slider = Instance.new("Frame")
 		local Content = Instance.new("TextLabel")
 		local ToolTip = Instance.new("ImageButton")
@@ -388,7 +388,7 @@ function Cupix_Lib:CreateBase()
 		coroutine.wrap(BSLDW_fake_script)()
 	end
 	
-	function Lib:CreateTitle(TitleName)
+	function Cupix_Lib:CreateTitle(TitleName)
 		local TitleSection = Instance.new("Frame")
 		local TitleContent = Instance.new("TextLabel")
 
@@ -410,7 +410,7 @@ function Cupix_Lib:CreateBase()
 		TitleContent.TextSize = 14.500
 	end
 	
-	function Lib:CreateCheckBox()
+	function Cupix_Lib:CreateCheckBox()
 		local CheckBox = Instance.new("Frame")
 		local CheckBoxContent = Instance.new("TextLabel")
 		local Toggler = Instance.new("ImageButton")
