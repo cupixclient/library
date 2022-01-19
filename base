@@ -1,0 +1,487 @@
+local Cupix_Lib = {}
+
+function Cupix_Lib:CreateBase()
+	local IntMain = Instance.new("ScreenGui")
+	local IntBase = Instance.new("Frame")
+	local Menu = Instance.new("Frame")
+	local Button = Instance.new("ImageButton")
+	local ImageContent = Instance.new("ImageLabel")
+	local Page = Instance.new("Frame")
+	local PageContents = Instance.new("ScrollingFrame")
+	local UIListLayout = Instance.new("UIListLayout")
+	local Notifications = Instance.new("Frame")
+	local UIListLayout_2 = Instance.new("UIListLayout")
+	local Int = Instance.new("Folder")
+	local NotificationTemplate = Instance.new("TextLabel")
+	local Value;
+	
+	IntMain.Name = "IntMain"
+	IntMain.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+	IntMain.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+	IntBase.Name = "IntBase"
+	IntBase.Parent = IntMain
+	IntBase.BackgroundColor3 = Color3.fromRGB(32, 32, 32)
+	IntBase.BorderSizePixel = 0
+	IntBase.Position = UDim2.new(0.572348416, 0, 0.523566842, 0)
+	IntBase.Size = UDim2.new(0, 386, 0, 261)
+	IntBase.Visible = true
+
+	Menu.Name = "Menu"
+	Menu.Parent = IntBase
+	Menu.BackgroundColor3 = Color3.fromRGB(35,35,35)
+	Menu.BorderSizePixel = 0
+	Menu.Position = UDim2.new(-0.038860105, 0, 0, 0)
+	Menu.Size = UDim2.new(0, 70, 0, 261)
+
+	Button.Name = "Button"
+	Button.Parent = Menu
+	Button.BackgroundColor3 = Color3.fromRGB(255, 74, 74)
+	Button.BackgroundTransparency = 1.000
+	Button.BorderSizePixel = 0
+	Button.Position = UDim2.new(0.100000001, 0, 0.0344827473, 0)
+	Button.Size = UDim2.new(0, 55, 0, 53)
+	Button.Image = "rbxasset://textures/ui/GuiImagePlaceholder.png"
+	Button.ImageTransparency = 1.000
+
+	ImageContent.Name = "ImageContent"
+	ImageContent.Parent = Button
+	ImageContent.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	ImageContent.BackgroundTransparency = 1.000
+	ImageContent.Position = UDim2.new(0.309090912, 0, 0.301886797, 0)
+	ImageContent.Size = UDim2.new(0, 21, 0, 21)
+	ImageContent.Image = "rbxassetid://8563772157"
+
+	Page.Name = "Page"
+	Page.Parent = IntBase
+	Page.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	Page.BackgroundTransparency = 1.000
+	Page.Position = UDim2.new(0.142487049, 0, 0, 0)
+	Page.Size = UDim2.new(0, 331, 0, 261)
+
+	PageContents.Name = "PageContents"
+	PageContents.Parent = Page
+	PageContents.Active = true
+	PageContents.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	PageContents.BackgroundTransparency = 1.000
+	PageContents.BorderSizePixel = 0
+	PageContents.Position = UDim2.new(0.0217361748, 0, 0.0306513403, 0)
+	PageContents.Size = UDim2.new(0, 314, 0, 244)
+	PageContents.BottomImage = "rbxassetid://8543726385"
+	PageContents.MidImage = "rbxassetid://8543726385"
+	PageContents.ScrollBarThickness = 8
+	PageContents.TopImage = "rbxassetid://8543726385"
+
+	UIListLayout.Parent = PageContents
+	UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+	UIListLayout.Padding = UDim.new(0, 7)
+
+	Notifications.Name = "Notifications"
+	Notifications.Parent = IntMain
+	Notifications.AnchorPoint = Vector2.new(1, 1)
+	Notifications.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	Notifications.BackgroundTransparency = 1.000
+	Notifications.Visible = true
+	Notifications.Position = UDim2.new(0.98989892, 0, 0.991729081, 0)
+	Notifications.Size = UDim2.new(0, 320, 0, 55)
+
+	UIListLayout_2.Parent = Notifications
+	UIListLayout_2.HorizontalAlignment = Enum.HorizontalAlignment.Right
+	UIListLayout_2.SortOrder = Enum.SortOrder.LayoutOrder
+	UIListLayout_2.VerticalAlignment = Enum.VerticalAlignment.Bottom
+	UIListLayout_2.Padding = UDim.new(0, 10)
+
+	Int.Name = "Int"
+	Int.Parent = IntMain
+	
+	NotificationTemplate.Name = "NotificationTemplate"
+	NotificationTemplate.Parent = IntMain
+	NotificationTemplate.BackgroundColor3 = Color3.fromRGB(38, 38, 38)
+	NotificationTemplate.BorderColor3 = Color3.fromRGB(27, 42, 53)
+	NotificationTemplate.BorderSizePixel = 0
+	NotificationTemplate.Position = UDim2.new(0.448532015, 0, 0.924258888, 0)
+	NotificationTemplate.Size = UDim2.new(0, 46, 0, 46)
+	NotificationTemplate.Font = Enum.Font.GothamSemibold
+	NotificationTemplate.Text = "[Insert Info]"
+	NotificationTemplate.Visible = false
+	NotificationTemplate.TextColor3 = Color3.fromRGB(234, 247, 255)
+	NotificationTemplate.TextSize = 12.000
+	NotificationTemplate.TextWrapped = true
+	
+	-- Scripts
+
+	local fake_module_scripts = {}
+
+	do -- IntMain.NotificationBase
+		local script = Instance.new('ModuleScript', IntMain)
+		script.Name = "NotificationBase"
+		local function module_script()
+			local NotificationModule = {}
+			local NotiTemp = script:WaitForChild("NotificationTemplate")
+
+			function NotificationModule:NotifyPlayer(LPlayer,Text)
+				local PlayerGui = LPlayer:WaitForChild("PlayerGui")
+				local NotificationsGui = PlayerGui.IntMain:WaitForChild("Notifications")
+				local NotiContent = NotiTemp:Clone()
+				NotiContent.Visible = true
+				NotiContent.Parent = PlayerGui.IntMain.Notifications
+				NotiContent.Text = Text
+				NotiContent:TweenSize(UDim2.new(0, 207,0, 46), Enum.EasingDirection.Out, Enum.EasingStyle.Quint,0.15)
+				coroutine.wrap(function()
+					wait(3)
+					for T = 0,1,0.1 do
+						NotiContent.BackgroundTransparency = T
+						NotiContent.TextTransparency = T
+						wait()
+					end
+					wait(0.05)
+					NotiContent:Destroy()
+				end)()
+			end
+
+			return NotificationModule
+
+		end
+		fake_module_scripts[script] = module_script
+	end
+
+
+	-- Scripts:
+
+	local function UYVVD_fake_script() -- IntBase.Drag 
+		local script = Instance.new('LocalScript', IntBase)
+		local req = require
+		local require = function(obj)
+			local fake = fake_module_scripts[obj]
+			if fake then
+				return fake()
+			end
+			return req(obj)
+		end
+
+		local UIS = game:GetService('UserInputService')
+		local frame = script.Parent
+		local dragToggle = nil
+		local dragSpeed = 0.095
+		local dragStart = nil
+		local startPos = nil
+
+		local function updateInput(input)
+			local delta = input.Position - dragStart
+			local position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X,
+				startPos.Y.Scale, startPos.Y.Offset + delta.Y)
+			game:GetService('TweenService'):Create(frame, TweenInfo.new(dragSpeed), {Position = position}):Play()
+		end
+
+		UIS.InputBegan:Connect(function(input)
+			local showframe = true
+			local guiframe = script.Parent
+			if input.KeyCode == Enum.KeyCode.LeftControl then
+				if showframe == true then
+					showframe = false
+					guiframe.Visible = false
+				end
+				if showframe == false then
+					showframe = true
+					guiframe.Visible = true
+				end
+			end	
+		end)
+
+		frame.InputBegan:Connect(function(input)
+			if (input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch) then 
+				dragToggle = true
+				dragStart = input.Position
+				startPos = frame.Position
+				input.Changed:Connect(function()
+					if input.UserInputState == Enum.UserInputState.End then
+						dragToggle = false
+					end
+				end)
+			end
+		end)
+
+		UIS.InputChanged:Connect(function(input)
+			if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+				if dragToggle then
+					updateInput(input)
+				end
+			end
+		end)
+
+
+	end
+	coroutine.wrap(UYVVD_fake_script)()
+	local function BDGWLM_fake_script() -- IntMain.Setup 
+	local script = Instance.new('LocalScript', IntMain)
+	local req = require
+	local require = function(obj)
+		local fake = fake_module_scripts[obj]
+		if fake then
+			return fake()
+		end
+		return req(obj)
+	end
+
+	local NewPath = game:GetService("ReplicatedStorage")
+	local MainParent = script.Parent.NotificationBase
+	local function ChangePath()
+		MainParent.Parent = NewPath
+	end
+		ChangePath()
+	end
+	coroutine.wrap(BDGWLM_fake_script)()
+	local function JDBX_fake_script() -- Int.LIB 
+		local script = Instance.new('LocalScript', Int)
+		local req = require
+		local require = function(obj)
+			local fake = fake_module_scripts[obj]
+			if fake then
+				return fake()
+			end
+			return req(obj)
+		end
+	end
+	coroutine.wrap(JDBX_fake_script)()
+	
+	local function NKNGO_fake_script() -- NotificationTemplate.ChangeParent 
+		local script = Instance.new('LocalScript', NotificationTemplate)
+
+		local NewPath2 = game.ReplicatedStorage.NotificationBase
+		local SubPar = script.Parent
+		function ChangePath2()
+			SubPar.Parent = NewPath2
+		end
+		ChangePath2()
+	end
+	coroutine.wrap(NKNGO_fake_script)()
+	
+	local Lib = {}
+	
+	function Lib:CreateSlider(SliderName,Maxvalue,Minvalue,CallVal)
+		local Slider = Instance.new("Frame")
+		local Content = Instance.new("TextLabel")
+		local ToolTip = Instance.new("ImageButton")
+		local ToopTipImage = Instance.new("ImageLabel")
+		local SliderFrame = Instance.new("Frame")
+		local SliderButton = Instance.new("ImageButton")
+		local Value;
+
+		Slider.Name = "Slider"
+		Slider.Parent = PageContents
+		Slider.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
+		Slider.BorderSizePixel = 0
+		Slider.Position = UDim2.new(0.164269432, 0, 0.00040502788, 0)
+		Slider.Size = UDim2.new(0, 296, 0, 77)
+
+		Content.Name = "Content"
+		Content.Parent = Slider
+		Content.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+		Content.BackgroundTransparency = 1.000
+		Content.Position = UDim2.new(0.0270270277, 0, 0, 0)
+		Content.Size = UDim2.new(0, 287, 0, 38)
+		Content.Font = Enum.Font.GothamSemibold
+		Content.Text = SliderName
+		Content.TextColor3 = Color3.fromRGB(255, 255, 255)
+		Content.TextSize = 14.000
+		Content.TextXAlignment = Enum.TextXAlignment.Left
+
+		ToolTip.Name = "ToolTip"
+		ToolTip.Parent = Slider
+		ToolTip.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+		ToolTip.BackgroundTransparency = 1.000
+		ToolTip.Position = UDim2.new(0.871621728, 0, 0, 0)
+		ToolTip.Size = UDim2.new(0, 38, 0, 39)
+		ToolTip.Image = "rbxasset://textures/ui/GuiImagePlaceholder.png"
+		ToolTip.ImageTransparency = 1.000
+
+		ToopTipImage.Name = "ToopTipImage"
+		ToopTipImage.Parent = ToolTip
+		ToopTipImage.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+		ToopTipImage.BackgroundTransparency = 1.000
+		ToopTipImage.Position = UDim2.new(0.236842036, 0, 0.205128193, 0)
+		ToopTipImage.Size = UDim2.new(0, 20, 0, 21)
+		ToopTipImage.Image = "rbxassetid://8543806830"
+
+		SliderFrame.Name = "SliderFrame"
+		SliderFrame.Parent = Slider
+		SliderFrame.BackgroundColor3 = Color3.fromRGB(32, 32, 32)
+		SliderFrame.BorderSizePixel = 0
+		SliderFrame.Position = UDim2.new(0.104626216, 0, 0.514293313, 0)
+		SliderFrame.Size = UDim2.new(0, 227, 0, 21)
+
+		SliderButton.Name = "SliderButton"
+		SliderButton.Parent = SliderFrame
+		SliderButton.BackgroundColor3 = Color3.fromRGB(38, 38, 38)
+		SliderButton.BorderSizePixel = 0
+		SliderButton.Size = UDim2.new(0, 20, 0, 21)
+		SliderButton.ZIndex = 0
+		SliderButton.Image = "rbxassetid://8543726385"
+		SliderButton.ImageColor3 = Color3.fromRGB(40, 40, 40)
+
+		local function KLKG_fake_script() -- ToolTip.SendNotification 
+			local script = Instance.new('LocalScript', ToolTip)
+			local req = require
+			local require = function(obj)
+				local fake = fake_module_scripts[obj]
+				if fake then
+					return fake()
+				end
+				return req(obj)
+			end
+
+			local Parent = script.Parent
+			-------------------------------------------------------------------------
+			Parent.MouseButton1Click:Connect(function()
+				local MessageContent = Content.Text;
+				local Notification = require(game.ReplicatedStorage.NotificationBase)
+				Notification:NotifyPlayer(game.Players.LocalPlayer, MessageContent) 
+			end)
+		end
+		coroutine.wrap(KLKG_fake_script)()
+		local function BSLDW_fake_script() -- SliderFrame.Manager 
+			local script = Instance.new('LocalScript', SliderFrame)
+			local req = require
+			local require = function(obj)
+				local fake = fake_module_scripts[obj]
+				if fake then
+					return fake()
+				end
+				return req(obj)
+			end
+
+			local UIS = game:GetService("UserInputService")
+			local Dragging = false
+
+			SliderButton.MouseButton1Down:Connect(function()
+				Dragging = true
+			end)
+
+			UIS.InputChanged:Connect(function()
+				if Dragging then
+					local MousePos = UIS:GetMouseLocation()+Vector2.new(0,36)
+					local RelPos = MousePos-SliderFrame.AbsolutePosition
+					local Percent = math.clamp(RelPos.X/SliderFrame.AbsoluteSize.X,0,0.914)
+					local SliderBtn = SliderButton
+					local dragSpeed = 0.2
+
+					game:GetService('TweenService'):Create(SliderBtn, TweenInfo.new(dragSpeed), {Position = UDim2.new(Percent,0,0,0)}):Play()	
+
+					Maxvalue = Maxvalue or 500
+					Minvalue = Minvalue or 16
+
+					Value = math.floor((((tonumber(Maxvalue) - tonumber(Minvalue))) * Percent) + tonumber(Minvalue))
+
+					pcall(function()
+						CallVal(Value)
+					end)
+				end
+			end)
+
+			UIS.InputEnded:Connect(function(input)
+				if input.UserInputType == Enum.UserInputType.MouseButton1 then
+					Dragging = false
+				end
+			end)
+
+		end 
+		coroutine.wrap(BSLDW_fake_script)()
+	end
+	
+	function Lib:CreateTitle(TitleName)
+		local TitleSection = Instance.new("Frame")
+		local TitleContent = Instance.new("TextLabel")
+
+		TitleSection.Name = "TitleSection"
+		TitleSection.Parent = PageContents
+		TitleSection.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
+		TitleSection.BorderSizePixel = 0
+		TitleSection.Position = UDim2.new(0.231626838, 0, 1.09619057, 0)
+		TitleSection.Size = UDim2.new(0, 296, 0, 38)
+
+		TitleContent.Name = "TitleContent"
+		TitleContent.Parent = TitleSection
+		TitleContent.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+		TitleContent.BackgroundTransparency = 1.000
+		TitleContent.Size = UDim2.new(0, 296, 0, 38)
+		TitleContent.Font = Enum.Font.GothamSemibold
+		TitleContent.Text = TitleName
+		TitleContent.TextColor3 = Color3.fromRGB(255, 255, 255)
+		TitleContent.TextSize = 14.500
+	end
+	
+	function Lib:CreateCheckBox()
+		local CheckBox = Instance.new("Frame")
+		local CheckBoxContent = Instance.new("TextLabel")
+		local Toggler = Instance.new("ImageButton")
+		
+		CheckBox.Name = "CheckBox"
+		CheckBox.Parent = game.StarterGui.IntMain.Int.LIB
+		CheckBox.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
+		CheckBox.BorderSizePixel = 0
+		CheckBox.Position = UDim2.new(0.231626838, 0, 1.09619057, 0)
+		CheckBox.Size = UDim2.new(0, 296, 0, 38)
+
+		CheckBoxContent.Name = "CheckBoxContent"
+		CheckBoxContent.Parent = CheckBox
+		CheckBoxContent.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+		CheckBoxContent.BackgroundTransparency = 1.000
+		CheckBoxContent.Position = UDim2.new(0.0304054059, 0, 0, 0)
+		CheckBoxContent.Size = UDim2.new(0, 278, 0, 38)
+		CheckBoxContent.Font = Enum.Font.GothamSemibold
+		CheckBoxContent.Text = "CheckBox"
+		CheckBoxContent.TextColor3 = Color3.fromRGB(255, 255, 255)
+		CheckBoxContent.TextSize = 14.000
+		CheckBoxContent.TextXAlignment = Enum.TextXAlignment.Left
+
+		Toggler.Name = "Toggler"
+		Toggler.Parent = CheckBox
+		Toggler.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
+		Toggler.BackgroundTransparency = 1.000
+		Toggler.BorderSizePixel = 0
+		Toggler.Position = UDim2.new(0.894891918, 0, 0.182999462, 0)
+		Toggler.Size = UDim2.new(0, 24, 0, 25)
+		Toggler.ZIndex = 0
+		Toggler.Selected = true
+		Toggler.Image = "rbxassetid://8543726385"
+		Toggler.ImageColor3 = Color3.fromRGB(255, 79, 79)
+
+		
+		
+		local function FOTBGEK_fake_script() -- Toggler.ToggleManager 
+			local script = Instance.new('LocalScript', Toggler)
+			local req = require
+			local require = function(obj)
+				local fake = fake_module_scripts[obj]
+				if fake then
+					return fake()
+				end
+				return req(obj)
+			end
+
+			local Parent = script.Parent
+			local IsToggled = false
+			Parent.MouseButton1Click:Connect(function()
+				if IsToggled == true then
+					IsToggled = false
+					local Speed = 0.3
+					local TweenFunc = TweenInfo.new(Speed, Enum.EasingStyle.Linear , Enum.EasingDirection.Out, 0)
+					local ColorTrue = Color3.fromRGB(144,255,96)	
+					TweenFunc:Create(Parent,TweenFunc, {BackgroundColor3 = ColorTrue}):Play()
+				end
+				if IsToggled == true then
+					IsToggled = false
+					local Speed = 0.3
+					local TweenFunc = TweenInfo.new(Speed, Enum.EasingStyle.Linear , Enum.EasingDirection.Out, 0)
+					local ColorFalse = Color3.fromRGB(255,79,79)
+					TweenFunc:Create(Parent,TweenFunc, {BackgroundColor3 = ColorFalse}):Play()
+				end
+			end)
+		end
+		coroutine.wrap(FOTBGEK_fake_script)()
+	end
+	
+	return Lib
+end
+
+return Cupix_Lib
