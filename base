@@ -1,6 +1,9 @@
 local Cupix_Lib = {}
 
 function Cupix_Lib:CreateBase(Name)
+	
+	print('LIB Created by ?????#9244')
+
 	local IntMain = Instance.new("ScreenGui")
 	local IntBase = Instance.new("Frame")
 	local Menu = Instance.new("Frame")
@@ -14,7 +17,7 @@ function Cupix_Lib:CreateBase(Name)
 	local Int = Instance.new("Folder")
 	local NotificationTemplate = Instance.new("TextLabel")
 	local Value;
-	
+
 	IntMain.Name = "IntMain"
 	IntMain.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
 	IntMain.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
@@ -474,3 +477,4 @@ function Cupix_Lib:CreateBase(Name)
 	end
 end
 return Cupix_Lib
+
