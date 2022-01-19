@@ -1,6 +1,7 @@
 local Cupix_Lib = {}
+local Lib = {}
 
-function Cupix_Lib:CreateBase()
+function Cupix_Lib:CreateBase(Name,Lib)
 	local IntMain = Instance.new("ScreenGui")
 	local IntBase = Instance.new("Frame")
 	local Menu = Instance.new("Frame")
@@ -21,7 +22,7 @@ function Cupix_Lib:CreateBase()
 	
 	IntMain.ResetOnSpawn = false;
 	
-	IntBase.Name = "IntBase"
+	IntBase.Name = Name
 	IntBase.Parent = IntMain
 	IntBase.BackgroundColor3 = Color3.fromRGB(32, 32, 32)
 	IntBase.BorderSizePixel = 0
@@ -91,7 +92,7 @@ function Cupix_Lib:CreateBase()
 	UIListLayout_2.HorizontalAlignment = Enum.HorizontalAlignment.Right
 	UIListLayout_2.SortOrder = Enum.SortOrder.LayoutOrder
 	UIListLayout_2.VerticalAlignment = Enum.VerticalAlignment.Bottom
-	UIListLayout_2.Padding = UDim.new(0, 7)
+	UIListLayout_2.Padding = UDim.new(0, 10)
 
 	Int.Name = "Int"
 	Int.Parent = IntMain
@@ -258,9 +259,7 @@ function Cupix_Lib:CreateBase()
 	end
 	coroutine.wrap(NKNGO_fake_script)()
 	
-	local Lib = {}
-	
-	function Cupix_Lib:CreateSlider(SliderName,Maxvalue,Minvalue,CallVal)
+	function Lib:CreateSlider(SliderName,Maxvalue,Minvalue,CallVal)
 		local Slider = Instance.new("Frame")
 		local Content = Instance.new("TextLabel")
 		local ToolTip = Instance.new("ImageButton")
@@ -390,7 +389,7 @@ function Cupix_Lib:CreateBase()
 		coroutine.wrap(BSLDW_fake_script)()
 	end
 	
-	function Cupix_Lib:CreateTitle(TitleName)
+	function Lib:CreateTitle(TitleName)
 		local TitleSection = Instance.new("Frame")
 		local TitleContent = Instance.new("TextLabel")
 
@@ -412,7 +411,7 @@ function Cupix_Lib:CreateBase()
 		TitleContent.TextSize = 14.500
 	end
 	
-	function Cupix_Lib:CreateCheckBox()
+	function Lib:CreateCheckBox()
 		local CheckBox = Instance.new("Frame")
 		local CheckBoxContent = Instance.new("TextLabel")
 		local Toggler = Instance.new("ImageButton")
@@ -480,9 +479,7 @@ function Cupix_Lib:CreateBase()
 		end
 		coroutine.wrap(FOTBGEK_fake_script)()
 	end
-	
 	return Lib
-	
 end
 
 return Cupix_Lib
