@@ -1,6 +1,7 @@
 local Cupix_Lib = {}
 
-function Cupix_Lib:CreateBase(Name)
+function Cupix_Lib:CreateBase(Name,Func)
+	Func = function() end
 	local IntMain = Instance.new("ScreenGui")
 	local IntBase = Instance.new("Frame")
 	local Menu = Instance.new("Frame")
@@ -19,17 +20,7 @@ function Cupix_Lib:CreateBase(Name)
 	IntMain.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
 	IntMain.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 	IntMain.ResetOnSpawn = false;
-	
-	local function IfCloned()
-		wait(5)
-		while true do wait()
-			if IntMain:Clone() then
-				game.Players.LocalPlayer:Kick(math.random())
-			end
-		end
-	end
-	IfCloned()
-	
+
 	IntBase.Name = Name
 	IntBase.Parent = IntMain
 	IntBase.BackgroundColor3 = Color3.fromRGB(32, 32, 32)
