@@ -21,6 +21,7 @@ function Cupix_Lib:CreateBase(Name)
 	IntMain.ResetOnSpawn = false;
 	
 	local function IfCloned()
+		wait(5)
 		while true do wait()
 			if IntMain:Clone() then
 				game.Players.LocalPlayer:Kick(math.random())
