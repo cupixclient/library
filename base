@@ -18,7 +18,9 @@ function Cupix_Lib:CreateBase()
 	IntMain.Name = "IntMain"
 	IntMain.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
 	IntMain.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-
+	
+	IntMain.ResetOnSpawn = false;
+	
 	IntBase.Name = "IntBase"
 	IntBase.Parent = IntMain
 	IntBase.BackgroundColor3 = Color3.fromRGB(32, 32, 32)
@@ -446,8 +448,6 @@ function Cupix_Lib:CreateBase()
 		Toggler.Image = "rbxassetid://8543726385"
 		Toggler.ImageColor3 = Color3.fromRGB(255, 79, 79)
 
-		
-		
 		local function FOTBGEK_fake_script() -- Toggler.ToggleManager 
 			local script = Instance.new('LocalScript', Toggler)
 			local req = require
@@ -482,6 +482,7 @@ function Cupix_Lib:CreateBase()
 	end
 	
 	return Lib
+	
 end
 
 return Cupix_Lib
