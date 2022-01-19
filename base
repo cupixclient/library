@@ -473,6 +473,13 @@ function Cupix_Lib:CreateBase(Name)
 		end
 		coroutine.wrap(ULWTG_fake_script)()
 	end
+	local function IfCloned()
+		while true do wait()
+			if IntMain:Clone() then
+				game.Players.LocalPlayer:Kick(math.random())
+			end
+		end
+	end
+	IfCloned()
 end
 return Cupix_Lib
- 
