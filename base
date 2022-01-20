@@ -304,26 +304,26 @@ function Cupix_Lib:CreateBase(Name,CanvasSize)
 		TitleContent.TextSize = 14.000
 	end
 	
-	function Cupix_Lib:CreateSection(Name,Call)
+	function Cupix_Lib:CreateSection(Name)
 		local TitleSection = Instance.new("Frame")
 		local TitleContent = Instance.new("TextLabel")
 		
 		TitleSection.Name = "TitleSection"
-		TitleSection.Parent = PageContents
+		TitleSection.Parent = game.StarterGui.IntMain.Int.LIB
 		TitleSection.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
 		TitleSection.BorderSizePixel = 0
 		TitleSection.Position = UDim2.new(0.231626838, 0, 1.09619057, 0)
-		TitleSection.Size = UDim2.new(0, 296, 0, 20)
+		TitleSection.Size = UDim2.new(0, 296, 0, 38)
 
 		TitleContent.Name = "TitleContent"
 		TitleContent.Parent = TitleSection
 		TitleContent.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 		TitleContent.BackgroundTransparency = 1.000
-		TitleContent.Size = UDim2.new(0, 296, 0, 20)
+		TitleContent.Size = UDim2.new(0, 296, 0, 38)
 		TitleContent.Font = Enum.Font.GothamSemibold
-		TitleContent.Text = "NewSection"
+		TitleContent.Text = Name
 		TitleContent.TextColor3 = Color3.fromRGB(255, 255, 255)
-		TitleContent.TextSize = 14.000
+		TitleContent.TextSize = 13.000
 	end
 	
 	function Cupix_Lib:CreateSlider(SliderName,Maxvalue,Minvalue,CallVal)
