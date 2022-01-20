@@ -309,7 +309,7 @@ function Cupix_Lib:CreateBase(Name,CanvasSize)
 		local TitleContent = Instance.new("TextLabel")
 		
 		TitleSection.Name = "TitleSection"
-		TitleSection.Parent = game.StarterGui.IntMain.Int.LIB
+		TitleSection.Parent = PageContents
 		TitleSection.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
 		TitleSection.BorderSizePixel = 0
 		TitleSection.Position = UDim2.new(0.231626838, 0, 1.09619057, 0)
