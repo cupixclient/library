@@ -1,7 +1,6 @@
 local Cupix_Lib = {}
 
 function Cupix_Lib:CreateBase(Name,CanvasSize)
-	
 	print('LIB Created by ?????#9244')
 
 	local IntMain = Instance.new("ScreenGui")
@@ -262,27 +261,49 @@ function Cupix_Lib:CreateBase(Name,CanvasSize)
 	coroutine.wrap(NKNGO_fake_script)()
 
 	function Cupix_Lib:CreateTitle(TitleName)
-		local TitleSection = Instance.new("Frame")
+		local MainTitle = Instance.new("Frame")
 		local TitleContent = Instance.new("TextLabel")
 
+		MainTitle.Name = "MainTitle"
+		MainTitle.Parent = PageContents
+		MainTitle.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
+		MainTitle.BorderSizePixel = 0
+		MainTitle.Position = UDim2.new(0.231626838, 0, 1.09619045, 0)
+		MainTitle.Size = UDim2.new(0, 296, 0, 50)
+
+		TitleContent.Name = "TitleContent"
+		TitleContent.Parent = MainTitle
+		TitleContent.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+		TitleContent.BackgroundTransparency = 1.000
+		TitleContent.Size = UDim2.new(0, 296, 0, 50)
+		TitleContent.Font = Enum.Font.GothamSemibold
+		TitleContent.Text = TitleName
+		TitleContent.TextColor3 = Color3.fromRGB(255, 255, 255)
+		TitleContent.TextSize = 14.000
+	end
+	
+	function Cupix_Lib:CreateSection(Name,Call)
+		local TitleSection = Instance.new("Frame")
+		local TitleContent = Instance.new("TextLabel")
+		
 		TitleSection.Name = "TitleSection"
 		TitleSection.Parent = PageContents
 		TitleSection.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
 		TitleSection.BorderSizePixel = 0
 		TitleSection.Position = UDim2.new(0.231626838, 0, 1.09619057, 0)
-		TitleSection.Size = UDim2.new(0, 296, 0, 38)
+		TitleSection.Size = UDim2.new(0, 296, 0, 20)
 
 		TitleContent.Name = "TitleContent"
 		TitleContent.Parent = TitleSection
 		TitleContent.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 		TitleContent.BackgroundTransparency = 1.000
-		TitleContent.Size = UDim2.new(0, 296, 0, 38)
+		TitleContent.Size = UDim2.new(0, 296, 0, 20)
 		TitleContent.Font = Enum.Font.GothamSemibold
-		TitleContent.Text = TitleName
+		TitleContent.Text = "NewSection"
 		TitleContent.TextColor3 = Color3.fromRGB(255, 255, 255)
-		TitleContent.TextSize = 14.500
+		TitleContent.TextSize = 14.000
 	end
-
+	
 	function Cupix_Lib:CreateSlider(SliderName,Maxvalue,Minvalue,CallVal)
 		local Slider = Instance.new("Frame")
 		local Content = Instance.new("TextLabel")
