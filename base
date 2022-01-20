@@ -315,7 +315,7 @@ function Cupix_Lib:CreateBase(Name,CanvasSize)
 		TitleSection.Position = UDim2.new(0.231626838, 0, 1.09619057, 0)
 		TitleSection.Size = UDim2.new(0, 296, 0, 38)
 
-		TitleContent.Name = "TitleContent"
+		TitleContent.Name = "TitleContent2"
 		TitleContent.Parent = TitleSection
 		TitleContent.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 		TitleContent.BackgroundTransparency = 1.000
