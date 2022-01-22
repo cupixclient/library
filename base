@@ -134,7 +134,7 @@ function Cupix_Lib:CreateBase(Name,CanvasSize)
 			end
 		end
 
-		game.ContextActionService:BindAction("keyPress", OnKeyPress, false, Enum.KeyCode.RightControl)
+		game.ContextActionService:BindAction("keyPress", OnKeyPress, false, Enum.KeyCode.V)
 	end
 	coroutine.wrap(QKWSJ_fake_script)()
 
