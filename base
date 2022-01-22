@@ -305,52 +305,69 @@ function Cupix_Lib:CreateBase(Name,CanvasSize)
 	end
 	function Cupix_Lib:CreateButton(Name,Callback)
 		Callback = Callback or function() end
-		local MainBtn = Instance.new("ImageButton")
+		
+		local Button = Instance.new("Frame")
 		local ButtonContent = Instance.new("TextLabel")
+		local Click = Instance.new("ImageButton")
+		local ImageLabel = Instance.new("ImageLabel")
 
-		MainBtn.Name = math.random()
-		MainBtn.Parent = PageContents
-		MainBtn.BackgroundTransparency = 1
-		MainBtn.ImageTransparency = 0
-		MainBtn.Image = "rbxassetid://8543726385"
-		MainBtn.ImageColor3 = Color3.fromRGB(35, 35, 35)
-		MainBtn.BorderSizePixel = 0
-		MainBtn.Position = UDim2.new(0.231626838, 0, 1.09619045, 0)
-		MainBtn.Size = UDim2.new(0, 296, 0, 32)
 
-		ButtonContent.Name = math.random()
-		ButtonContent.Parent = MainBtn
+		Button.Name = "Button"
+		Button.Parent = PageContents
+		Button.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
+		Button.BorderSizePixel = 0
+		Button.Position = UDim2.new(-1.18547153, 0, -0.252468467, 0)
+		Button.Size = UDim2.new(0, 296, 0, 38)
+
+		ButtonContent.Name = "CheckBoxContent"
+		ButtonContent.Parent = Button
 		ButtonContent.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-		ButtonContent.BackgroundTransparency = 1
-		ButtonContent.Size = UDim2.new(0, 296, 0, 32)
+		ButtonContent.BackgroundTransparency = 1.000
+		ButtonContent.Position = UDim2.new(0.0304054059, 0, 0, 0)
+		ButtonContent.Size = UDim2.new(0, 278, 0, 38)
 		ButtonContent.Font = Enum.Font.GothamSemibold
 		ButtonContent.Text = Name
 		ButtonContent.TextColor3 = Color3.fromRGB(255, 255, 255)
-		ButtonContent.TextSize = 13.000
+		ButtonContent.TextSize = 14.000
+		ButtonContent.TextXAlignment = Enum.TextXAlignment.Left
+
+		Click.Name = "Click"
+		Click.Parent = Button
+		Click.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
+		Click.BackgroundTransparency = 1.000
+		Click.BorderSizePixel = 0
+		Click.Position = UDim2.new(0.894891918, 0, 0.182999462, 0)
+		Click.Size = UDim2.new(0, 24, 0, 25)
+		Click.ZIndex = 0
+		Click.Selected = true
+		Click.Image = "rbxassetid://8543726385"
+		Click.ImageColor3 = Color3.fromRGB(255, 79, 79)
+
+		ImageLabel.Parent = Click
+		ImageLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+		ImageLabel.BackgroundTransparency = 1.000
+		ImageLabel.BorderSizePixel = 0
+		ImageLabel.Size = UDim2.new(0, 24, 0, 25)
+		ImageLabel.Image = "rbxassetid://8615384944"
 
 		local function YNZEUT_fake_script() -- MainBtn.HoverManager 
-			local script = Instance.new('LocalScript', MainBtn)
+			local script = Instance.new('LocalScript', Click)
 
-			local Parent = MainBtn
+			local Parent = Click
 
 			Parent.MouseButton1Click:Connect(function()
 				pcall(Callback)
-			end)
-			
-			Parent.MouseEnter:Connect(function()
-				local Speed = 0.5
-				local TweenFunc = TweenInfo.new(Speed, Enum.EasingStyle.Quad , Enum.EasingDirection.In, 0)
+				local Speed = 0.2
+				local TweenFunc = TweenInfo.new(Speed, Enum.EasingStyle.Linear , Enum.EasingDirection.Out, 0)
 				local TweenServ = game:GetService("TweenService")
-				local SetTrue = 0.7
-				TweenServ:Create(Parent,TweenFunc, {ImageTransparency = SetTrue}):Play()
-			end)
-			
-			Parent.MouseLeave:Connect(function()
-				local Speed = 0.5
-				local TweenFunc = TweenInfo.new(Speed, Enum.EasingStyle.Quad , Enum.EasingDirection.In, 0)
+				local ClickTrue = Color3.fromRGB(144,255,96)	
+				TweenServ:Create(Parent,TweenFunc, {ImageColor3 = ClickTrue}):Play()
+				wait(0.3)
+				local Speed = 0.2
+				local TweenFunc = TweenInfo.new(Speed, Enum.EasingStyle.Linear , Enum.EasingDirection.Out, 0)
 				local TweenServ = game:GetService("TweenService")
-				local SetFalse = 0
-				TweenServ:Create(Parent,TweenFunc, {ImageTransparency = SetFalse}):Play()
+				local ClickEnd = Color3.fromRGB(255,79,79)	
+				TweenServ:Create(Parent,TweenFunc, {ImageColor3 = ClickEnd}):Play()
 			end)
 		end
 		coroutine.wrap(YNZEUT_fake_script)()
