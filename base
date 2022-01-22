@@ -276,13 +276,13 @@ function Cupix_Lib:CreateBase(Name,CanvasSize)
 		MainTitle.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
 		MainTitle.BorderSizePixel = 0
 		MainTitle.Position = UDim2.new(0.231626838, 0, 1.09619045, 0)
-		MainTitle.Size = UDim2.new(0, 296, 0, 50)
+		MainTitle.Size = UDim2.new(0, 296, 0, 38)
 
 		TitleContent.Name = "TitleContent"
 		TitleContent.Parent = MainTitle
 		TitleContent.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 		TitleContent.BackgroundTransparency = 1.000
-		TitleContent.Size = UDim2.new(0, 296, 0, 50)
+		TitleContent.Size = UDim2.new(0, 296, 0, 38)
 		TitleContent.Font = Enum.Font.GothamSemibold
 		TitleContent.Text = TitleName
 		TitleContent.TextColor3 = Color3.fromRGB(255, 255, 255)
@@ -366,13 +366,13 @@ function Cupix_Lib:CreateBase(Name,CanvasSize)
 		TitleSection.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
 		TitleSection.BorderSizePixel = 0
 		TitleSection.Position = UDim2.new(0.231626838, 0, 1.09619057, 0)
-		TitleSection.Size = UDim2.new(0, 296, 0, 38)
+		TitleSection.Size = UDim2.new(0, 296, 0, 34)
 
 		TitleContent.Name = "TitleContent2"
 		TitleContent.Parent = TitleSection
 		TitleContent.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 		TitleContent.BackgroundTransparency = 1.000
-		TitleContent.Size = UDim2.new(0, 296, 0, 38)
+		TitleContent.Size = UDim2.new(0, 296, 0, 34)
 		TitleContent.Font = Enum.Font.GothamSemibold
 		TitleContent.Text = Name
 		TitleContent.TextColor3 = Color3.fromRGB(255, 255, 255)
