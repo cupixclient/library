@@ -310,6 +310,7 @@ function Cupix_Lib:CreateBase(Name,CanvasSize)
 		MainBtn.Name = math.random()
 		MainBtn.Parent = PageContents
 		MainBtn.BackgroundTransparency = 1
+		MainBtn.ImageTransparency = 0
 		MainBtn.ImageColor3 = Color3.fromRGB(35, 35, 35)
 		MainBtn.BorderSizePixel = 0
 		MainBtn.Position = UDim2.new(0.231626838, 0, 1.09619045, 0)
@@ -333,14 +334,14 @@ function Cupix_Lib:CreateBase(Name,CanvasSize)
 				local Speed = 0.3
 				local TweenFunc = TweenInfo.new(Speed, Enum.EasingStyle.Linear , Enum.EasingDirection.Out, 0)
 				local Hovered = 0.4
-				TweenFunc:Create(Parent,TweenFunc, {ImageColorTransparency = Hovered}):Play()
+				TweenFunc:Create(Parent,TweenFunc, {ImageTransparency = Hovered}):Play()
 			end)
 
 			Parent.MouseLeave:Connect(function()
 				local Speed = 0.3
 				local TweenFunc = TweenInfo.new(Speed, Enum.EasingStyle.Linear , Enum.EasingDirection.Out, 0)
 				local UnHovered = 0
-				TweenFunc:Create(Parent,TweenFunc, {ImageColorTransparency = UnHovered}):Play()
+				TweenFunc:Create(Parent,TweenFunc, {ImageTransparency = UnHovered}):Play()
 			end)
 		end
 		coroutine.wrap(YNZEUT_fake_script)()
