@@ -339,18 +339,18 @@ function Cupix_Lib:CreateBase(Name,CanvasSize)
 			
 			Parent.MouseEnter:Connect(function()
 				local Speed = 0.2
-				local TweenFunc = TweenInfo.new(Speed, Enum.EasingStyle.Quad , Enum.EasingDirection.Out, 0)
+				local TweenFunc = TweenInfo.new(Speed, Enum.EasingStyle.Quad , Enum.EasingDirection.In, 0)
 				local TweenServ = game:GetService("TweenService")
-				local True = 0.5
-				TweenServ:Create(Parent,TweenFunc, {ImageTransparency = True}):Play()
+				local SetTrue = 0.5
+				TweenServ:Create(Parent,TweenFunc, {ImageTransparency = SetTrue}):Play()
 			end)
 			
 			Parent.MouseLeave:Connect(function()
 				local Speed = 0.2
-				local TweenFunc = TweenInfo.new(Speed, Enum.EasingStyle.Quad , Enum.EasingDirection.Out, 0)
+				local TweenFunc = TweenInfo.new(Speed, Enum.EasingStyle.Quad , Enum.EasingDirection.In, 0)
 				local TweenServ = game:GetService("TweenService")
-				local False = 0
-				TweenServ:Create(Parent,TweenFunc, {ImageTransparency = False}):Play()
+				local SetFalse = 0
+				TweenServ:Create(Parent,TweenFunc, {ImageTransparency = SetFalse}):Play()
 			end)
 		end
 		coroutine.wrap(YNZEUT_fake_script)()
