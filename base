@@ -332,6 +332,11 @@ function Cupix_Lib:CreateBase(Name,CanvasSize)
 			local script = Instance.new('LocalScript', MainBtn)
 
 			local Parent = MainBtn
+			
+			Parent.MouseButton1Click:Connect(function()
+				pcall(Callback)
+			end)
+			
 			Parent.MouseEnter:Connect(function()
 				local Speed = 0.3
 				local TweenFunc = TweenInfo.new(Speed, Enum.EasingStyle.Quad , Enum.EasingDirection.InOut, 0)
@@ -346,10 +351,6 @@ function Cupix_Lib:CreateBase(Name,CanvasSize)
 				local TweenServ = game:GetService("TweenService")
 				local UnHovered = 0
 				TweenServ:Create(Parent,TweenFunc, {ImageTransparency = UnHovered}):Play()
-			end)
-			
-			Parent.MouseButton1Click:Connect(function()
-				pcall(Callback)
 			end)
 		end
 		coroutine.wrap(YNZEUT_fake_script)()
