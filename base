@@ -324,6 +324,26 @@ function Cupix_Lib:CreateBase(Name,CanvasSize)
 		ButtonContent.Text = Name
 		ButtonContent.TextColor3 = Color3.fromRGB(255, 255, 255)
 		ButtonContent.TextSize = 13.000
+		
+		local function YNZEUT_fake_script() -- MainBtn.HoverManager 
+			local script = Instance.new('LocalScript', MainBtn)
+
+			local Parent = script.Parent
+			Parent.MouseEnter:Connect(function()
+				local Speed = 0.3
+				local TweenFunc = TweenInfo.new(Speed, Enum.EasingStyle.Linear , Enum.EasingDirection.Out, 0)
+				local Hovered = 0.4
+				TweenFunc:Create(Parent,TweenFunc, {ImageColorTransparency = Hovered}):Play()
+			end)
+
+			Parent.MouseLeave:Connect(function()
+				local Speed = 0.3
+				local TweenFunc = TweenInfo.new(Speed, Enum.EasingStyle.Linear , Enum.EasingDirection.Out, 0)
+				local UnHovered = 0
+				TweenFunc:Create(Parent,TweenFunc, {ImageColorTransparency = UnHovered}):Play()
+			end)
+		end
+		coroutine.wrap(YNZEUT_fake_script)()
 	end
 	function Cupix_Lib:CreateSection(Name)
 		local TitleSection = Instance.new("Frame")
