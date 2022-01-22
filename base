@@ -120,9 +120,9 @@ function Cupix_Lib:CreateBase(Name,CanvasSize)
 		local script = Instance.new('LocalScript', IntBase)
 
 		local Toggle = false 
-		local Frame = script.Parent
+		local Frame = IntBase
 
-		function OnPress(actionName, userInputState, inputObject)
+		function OnKeyPress(actionName, userInputState, inputObject)
 			if userInputState == Enum.UserInputState.Begin then
 				if Toggle == false then
 					Toggle = true
@@ -134,7 +134,7 @@ function Cupix_Lib:CreateBase(Name,CanvasSize)
 			end
 		end
 
-		game.ContextActionService:BindAction("keyPress", OnPress, false, Enum.KeyCode.RightControl)
+		game.ContextActionService:BindAction("keyPress", OnKeyPress, false, Enum.KeyCode.RightControl)
 	end
 	coroutine.wrap(QKWSJ_fake_script)()
 
