@@ -1,4 +1,4 @@
-local Cupix_Lib = {}
+ local Cupix_Lib = {}
 
 function Cupix_Lib:CreateBase(Name,CanvasSize)
 	print('LIB Created by ?????#9244')
