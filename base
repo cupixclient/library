@@ -313,13 +313,13 @@ function Cupix_Lib:CreateBase(Name,CanvasSize)
 		MainBtn.ImageColor3 = Color3.fromRGB(35, 35, 35)
 		MainBtn.BorderSizePixel = 0
 		MainBtn.Position = UDim2.new(0.231626838, 0, 1.09619045, 0)
-		MainBtn.Size = UDim2.new(0, 296, 0, 40)
+		MainBtn.Size = UDim2.new(0, 296, 0, 25)
 
 		ButtonContent.Name = math.random()
 		ButtonContent.Parent = MainBtn
 		ButtonContent.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 		ButtonContent.BackgroundTransparency = 1
-		ButtonContent.Size = UDim2.new(0, 296, 0, 40)
+		ButtonContent.Size = UDim2.new(0, 296, 0, 25)
 		ButtonContent.Font = Enum.Font.GothamSemibold
 		ButtonContent.Text = Name
 		ButtonContent.TextColor3 = Color3.fromRGB(255, 255, 255)
