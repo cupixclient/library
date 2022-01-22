@@ -304,7 +304,7 @@ function Cupix_Lib:CreateBase(Name,CanvasSize)
 		TitleContent.TextSize = 14.000
 	end
 	function Cupix_Lib:CreateButton(Name,Callback)
-		Callback = function() end
+		Callback = Callback or function() end
 		local MainBtn = Instance.new("ImageButton")
 		local ButtonContent = Instance.new("TextLabel")
 		
@@ -316,13 +316,13 @@ function Cupix_Lib:CreateBase(Name,CanvasSize)
 		MainBtn.ImageColor3 = Color3.fromRGB(35, 35, 35)
 		MainBtn.BorderSizePixel = 0
 		MainBtn.Position = UDim2.new(0.231626838, 0, 1.09619045, 0)
-		MainBtn.Size = UDim2.new(0, 296, 0, 30)
+		MainBtn.Size = UDim2.new(0, 296, 0, 32)
 
 		ButtonContent.Name = math.random()
 		ButtonContent.Parent = MainBtn
 		ButtonContent.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 		ButtonContent.BackgroundTransparency = 1
-		ButtonContent.Size = UDim2.new(0, 296, 0, 30)
+		ButtonContent.Size = UDim2.new(0, 296, 0, 32)
 		ButtonContent.Font = Enum.Font.GothamSemibold
 		ButtonContent.Text = Name
 		ButtonContent.TextColor3 = Color3.fromRGB(255, 255, 255)
@@ -333,16 +333,16 @@ function Cupix_Lib:CreateBase(Name,CanvasSize)
 
 			local Parent = MainBtn
 			Parent.MouseEnter:Connect(function()
-				local Speed = 1
-				local TweenFunc = TweenInfo.new(Speed, Enum.EasingStyle.Linear , Enum.EasingDirection.Out, 0)
+				local Speed = 0.3
+				local TweenFunc = TweenInfo.new(Speed, Enum.EasingStyle.Quad , Enum.EasingDirection.InOut, 0)
 				local TweenServ = game:GetService("TweenService")
 				local Hovered = 0.5
 				TweenServ:Create(Parent,TweenFunc, {ImageTransparency = Hovered}):Play()
 			end)
 
 			Parent.MouseLeave:Connect(function()
-				local Speed = 1
-				local TweenFunc = TweenInfo.new(Speed, Enum.EasingStyle.Linear , Enum.EasingDirection.Out, 0)
+				local Speed = 0.3
+				local TweenFunc = TweenInfo.new(Speed, Enum.EasingStyle.Quad , Enum.EasingDirection.InOut, 0)
 				local TweenServ = game:GetService("TweenService")
 				local UnHovered = 0
 				TweenServ:Create(Parent,TweenFunc, {ImageTransparency = UnHovered}):Play()
