@@ -333,16 +333,16 @@ function Cupix_Lib:CreateBase(Name,CanvasSize)
 			local Parent = MainBtn
 			Parent.MouseEnter:Connect(function()
 				local Speed = 0.3
-				local TweenServ = game:GetService("TweenService")
 				local TweenFunc = TweenInfo.new(Speed, Enum.EasingStyle.Linear , Enum.EasingDirection.Out, 0)
+				local TweenServ = game:GetService("TweenService")
 				local Hovered = 0.4
 				TweenServ:Create(Parent,TweenFunc, {ImageTransparency = Hovered}):Play()
 			end)
 
 			Parent.MouseLeave:Connect(function()
 				local Speed = 0.3
-				local TweenServ = game:GetService("TweenService")
 				local TweenFunc = TweenInfo.new(Speed, Enum.EasingStyle.Linear , Enum.EasingDirection.Out, 0)
+				local TweenServ = game:GetService("TweenService")
 				local UnHovered = 0
 				TweenServ:Create(Parent,TweenFunc, {ImageTransparency = UnHovered}):Play()
 			end)
