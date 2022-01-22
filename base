@@ -309,8 +309,9 @@ function Cupix_Lib:CreateBase(Name,CanvasSize)
 		
 		MainBtn.Name = math.random()
 		MainBtn.Parent = PageContents
-		MainBtn.BackgroundTransparency = 0
+		MainBtn.BackgroundTransparency = 1
 		MainBtn.ImageTransparency = 0
+		MainBtn.Image = "rbxassetid://8543726385"
 		MainBtn.ImageColor3 = Color3.fromRGB(35, 35, 35)
 		MainBtn.BorderSizePixel = 0
 		MainBtn.Position = UDim2.new(0.231626838, 0, 1.09619045, 0)
