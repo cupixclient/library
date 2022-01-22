@@ -303,7 +303,27 @@ function Cupix_Lib:CreateBase(Name,CanvasSize)
 		TitleContent.TextColor3 = Color3.fromRGB(255, 255, 255)
 		TitleContent.TextSize = 14.000
 	end
-	
+	function Cupix_Lib:CreateButton(Name)
+		local MainBtn = Instance.new("ImageButton")
+		local ButtonContent = Instance.new("TextLabel")
+		
+		MainBtn.Name = math.random()
+		MainBtn.Parent = PageContents
+		MainBtn.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
+		MainBtn.BorderSizePixel = 0
+		MainBtn.Position = UDim2.new(0.231626838, 0, 1.09619045, 0)
+		MainBtn.Size = UDim2.new(0, 296, 0, 40)
+
+		ButtonContent.Name = math.random()
+		ButtonContent.Parent = MainBtn
+		ButtonContent.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+		ButtonContent.BackgroundTransparency = 1.000
+		ButtonContent.Size = UDim2.new(0, 296, 0, 40)
+		ButtonContent.Font = Enum.Font.GothamSemibold
+		ButtonContent.Text = Name
+		ButtonContent.TextColor3 = Color3.fromRGB(255, 255, 255)
+		ButtonContent.TextSize = 13.000
+	end
 	function Cupix_Lib:CreateSection(Name)
 		local TitleSection = Instance.new("Frame")
 		local TitleContent = Instance.new("TextLabel")
