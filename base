@@ -303,7 +303,8 @@ function Cupix_Lib:CreateBase(Name,CanvasSize)
 		TitleContent.TextColor3 = Color3.fromRGB(255, 255, 255)
 		TitleContent.TextSize = 14.000
 	end
-	function Cupix_Lib:CreateButton(Name)
+	function Cupix_Lib:CreateButton(Name,Callback)
+		Callback = function() end
 		local MainBtn = Instance.new("ImageButton")
 		local ButtonContent = Instance.new("TextLabel")
 		
@@ -332,19 +333,25 @@ function Cupix_Lib:CreateBase(Name,CanvasSize)
 
 			local Parent = MainBtn
 			Parent.MouseEnter:Connect(function()
-				local Speed = 0.3
-				local TweenFunc = TweenInfo.new(Speed, Enum.EasingStyle.Quad , Enum.EasingDirection.Out, 0)
+				local Speed = 0.2
+				local TweenFunc = TweenInfo.new(Speed, Enum.EasingStyle.Linear , Enum.EasingDirection.Out, 0)
 				local TweenServ = game:GetService("TweenService")
 				local Hovered = 0.4
 				TweenServ:Create(Parent,TweenFunc, {ImageTransparency = Hovered}):Play()
 			end)
 
 			Parent.MouseLeave:Connect(function()
-				local Speed = 0.3
-				local TweenFunc = TweenInfo.new(Speed, Enum.EasingStyle.Quad , Enum.EasingDirection.Out, 0)
+				local Speed = 0.2
+				local TweenFunc = TweenInfo.new(Speed, Enum.EasingStyle.Linear , Enum.EasingDirection.Out, 0)
 				local TweenServ = game:GetService("TweenService")
 				local UnHovered = 0
 				TweenServ:Create(Parent,TweenFunc, {ImageTransparency = UnHovered}):Play()
+			end)
+			
+			Parent.MouseButton1Click:Connect(function()
+				pcall(function()
+					Callback()
+				end)
 			end)
 		end
 		coroutine.wrap(YNZEUT_fake_script)()
